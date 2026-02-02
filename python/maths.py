@@ -1,3 +1,7 @@
+"""
+Basic mathematical and logical operations. "Functions" are implemented in libraries
+"""
+
 # add
 print(1+1)
 
@@ -16,9 +20,7 @@ print(1/1)
 # floor
 print(3//2)
 
-"""
-other mathematical "functions" are implemented in libraries
-"""
+
 
 # eq
 print(1==1)

@@ -1,7 +1,5 @@
 """
 Imports are interesting because they aren't code, rather for the run-time environment or build tools to allow you to reference other files as code.
-
-
 """
 # import [library]
 # import [library] as [name]

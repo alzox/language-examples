@@ -4,7 +4,7 @@ int, str, list, tuple, dict, set
 
 Collection types are passed by reference which means they are mutable i.e. through a function
 
-Functions can have variable types annotated which helps with readability and if you want to have a library statically look at your code.
+Functions can have variable types annotated which helps with readability or if you want to have a library statically look at your code.
 """
 
 # All of the annotation is done without changing any functionality.
@@ -22,7 +22,7 @@ ez: dict[int, int] = {1:2}
 
 f: set[int] = {1, 2, 3}
 
-# Practically, functions, classes, and modules can have the annotations listeda
+# Practically, functions, classes, and modules can have the annotations listed
 def example(num: int) -> int:
     return num + 1
 
