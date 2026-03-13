@@ -1,0 +1,146 @@
+/*
+CSS Selector Queries and Combinators
+Different ways to combine and query selectors for more specific targeting
+Any of the combinations can be done with class, id, or tag selectors
+
+Attribute queries is on everything inside a tag i.e. lang/title you can even query for id even if it's bad practice
+*/
+
+/* SELECTOR QUERIES/COMBINATORS */
+
+/* Descendant Selector - all p inside div */
+div p {
+    color: blue;
+}
+
+/* Child Selector - direct p children of div only */
+div > p {
+    margin: 10px;
+}
+
+/* Adjacent Sibling - p immediately following h1 */
+h1 + p {
+    font-weight: bold;
+}
+
+/* General Sibling - all p that follow h1 */
+h1 ~ p {
+    line-height: 1.5;
+}
+
+/* Multiple Selector - apply to both h1 and h2 */
+h1, h2 {
+    color: darkblue;
+    font-family: Arial;
+}
+
+/* ATTRIBUTE SELECTORS */
+
+/* Elements with specific attribute */
+[title] {
+    border-bottom: 1px dotted;
+}
+
+/* Exact attribute value */
+[type="text"] {
+    border: 2px solid #ccc;
+}
+
+/* Attribute value starts with */
+[href^="https"] {
+    color: green;
+}
+
+/* Attribute value ends with */
+[src$=".jpg"] {
+    border: 3px solid red;
+}
+
+/* Attribute value contains substring */
+[class*="button"] {
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Attribute value contains word (space-separated) */
+[class~="active"] {
+    background: yellow;
+}
+
+/* Attribute value starts with or is followed by hyphen (language codes) */
+[lang|="en"] {
+    font-style: italic;
+}
+
+/* Case-insensitive attribute matching */
+[title*="important" i] {
+    font-weight: bold;
+}
+
+/* Case-sensitive attribute matching (default, but explicit) */
+[data-role*="Admin" s] {
+    color: red;
+}
+
+/* ADVANCED QUERIES */
+
+/* Complex combinations */
+div.container > ul li a {
+    text-decoration: underline;
+}
+
+/* Multiple attributes */
+input[type="email"][required] {
+    border-color: orange;
+}
+
+/* Universal selector */
+* {
+    box-sizing: border-box;
+}
+
+/* Grouping with complex selectors */
+.nav a:hover,
+.menu a:focus,
+.sidebar a:active {
+    background-color: #f0f0f0;
+}
+
+/* Chaining classes */
+.button.primary.large {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+/* Descendant with multiple levels */
+.container .content .article p:first-of-type {
+    font-size: 1.2em;
+}
+
+/* Adjacent sibling with class */
+.heading + .subheading {
+    margin-top: -10px;
+    color: #666;
+}
+
+/* Examples showing combinators work with any selector type */
+
+/* ID + descendant */
+#header nav a {
+    color: white;
+}
+
+/* Class + child */
+.menu > li {
+    display: inline-block;
+}
+
+/* Tag + adjacent sibling */
+img + figcaption {
+    font-style: italic;
+}
+
+/* Mixed selectors */
+#sidebar .widget h3 + p {
+    margin-top: 0;
+}

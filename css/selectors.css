@@ -1,0 +1,60 @@
+/*
+The heart of css is selectors.
+[tag] - provides styling on the base classes
+.variable - references classes in the html
+#variable - references ids in the html
+
+Queries can be done on these selectors (see queries.css for examples).
+*/
+
+/* Basic Selectors */
+
+/* Tag Selector - selects all elements of this type */
+p {
+    font-size: 20px;
+}
+
+/* ID Selector - selects element with specific id */
+#sometext {
+    font-size: 20px;
+}
+
+/* Class Selector - selects elements with specific class */
+.twentypx {
+    font-size: 20px;
+}
+
+/* Universal Selector - selects all elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Type selectors for different elements */
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+div {
+    display: block;
+}
+
+span {
+    display: inline;
+}
+
+/* Multiple classes on same element */
+.primary {
+    color: blue;
+}
+
+.large {
+    font-size: 1.5em;
+}
+
+.button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}

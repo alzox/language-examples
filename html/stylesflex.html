@@ -1,0 +1,57 @@
+<!-- 
+Styles should be added with css classes, queries, or id selectors, this is only being done to show the scope of customizations and some interesting things that are possible with styling in html.
+
+Styles are mainly categorized into:
+text - what the text in the tag looks like
+space - how much a tag takes up
+positioning - where it is placed (position, transform)
+flex/grid - used for flex and grid layouts
+psuedo - special misc ones like hover or before
+list/tables - styles specific to those tags
+-->
+
+<p style="color: #333; font-size: 18px; font-weight: bold; font-family: Arial, sans-serif; text-align: center; text-decoration: underline; line-height: 1.6; letter-spacing: 2px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+    Text Styling Example: This paragraph demonstrates various text properties including color, font size, weight, alignment, and effects.
+</p>
+
+<div style="width: 300px; height: 200px; margin: 20px auto; padding: 15px; border: 3px solid #007acc; border-radius: 10px; background-color: #f0f8ff; box-shadow: 0 4px 8px rgba(0,0,0,0.2); position: relative; top: 10px; left: 20px;">
+    Space & Positioning: This div shows width, height, margin, padding, border, background, shadows, and positioning properties.
+</div>
+
+<div style="width: 150px; height: 150px; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg) scale(1.2); transition: all 0.3s ease; cursor: pointer; z-index: 10;">
+    Transform & Effects: Positioned absolutely with transforms, gradients, transitions, and z-index.
+</div>
+
+<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; min-height: 100px; background-color: #e8f4f8; padding: 20px; border-left: 5px solid #007acc;">
+    <span style="flex: 1; background: #007acc; color: white; padding: 10px; text-align: center;">Flex Item 1</span>
+    <span style="flex: 2; background: #ff6b6b; color: white; padding: 10px; text-align: center;">Flex Item 2 (flex: 2)</span>
+    <span style="flex: 1; background: #4ecdc4; color: white; padding: 10px; text-align: center;">Flex Item 3</span>
+</div>
+
+<ul style="list-style-type: none; margin: 0; padding: 0; background-color: #f9f9f9; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <li style="padding: 12px 20px; border-bottom: 1px solid #ddd; background-color: white; transition: background-color 0.2s; cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f8ff'" onmouseout="this.style.backgroundColor='white'">List Item 1 - Hover effects and transitions</li>
+    <li style="padding: 12px 20px; border-bottom: 1px solid #ddd; background-color: white; transition: background-color 0.2s; cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f8ff'" onmouseout="this.style.backgroundColor='white'">List Item 2 - Custom list styling</li>
+    <li style="padding: 12px 20px; background-color: white; transition: background-color 0.2s; cursor: pointer;" onmouseover="this.style.backgroundColor='#f0f8ff'" onmouseout="this.style.backgroundColor='white'">List Item 3 - No bottom border on last item</li>
+</ul>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-family: Arial, sans-serif; background-color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+    <thead>
+        <tr style="background: linear-gradient(135deg, #007acc, #4ecdc4); color: white;">
+            <th style="padding: 15px; text-align: left; font-weight: 600; border-right: 1px solid rgba(255,255,255,0.2);">Column 1</th>
+            <th style="padding: 15px; text-align: left; font-weight: 600; border-right: 1px solid rgba(255,255,255,0.2);">Column 2</th>
+            <th style="padding: 15px; text-align: left; font-weight: 600;">Column 3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="border-bottom: 1px solid #eee; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='transparent'">
+            <td style="padding: 12px 15px; border-right: 1px solid #eee;">Data 1</td>
+            <td style="padding: 12px 15px; border-right: 1px solid #eee; font-weight: bold; color: #007acc;">Data 2</td>
+            <td style="padding: 12px 15px;">Data 3</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='transparent'">
+            <td style="padding: 12px 15px; border-right: 1px solid #eee;">Data 4</td>
+            <td style="padding: 12px 15px; border-right: 1px solid #eee; text-align: center; font-style: italic;">Data 5</td>
+            <td style="padding: 12px 15px; text-align: right; color: #28a745; font-weight: bold;">$123.45</td>
+        </tr>
+    </tbody>
+</table>

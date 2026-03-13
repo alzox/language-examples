@@ -1,0 +1,219 @@
+/*
+Variables is what allow people to make css "frameworks" like Tailwind or Bootstrap.
+CSS Custom Properties enable reusable values and theming systems.
+*/
+
+/* DECLARING VARIABLES - usually done in :root for global scope */
+:root {
+    /* Color palette */
+    --primary-color: #007acc;
+    --secondary-color: #4ecdc4;
+    --accent-color: #ff6b6b;
+    --text-color: #333333;
+    --text-light: #666666;
+    --background-color: #ffffff;
+    --surface-color: #f8f9fa;
+    --border-color: #e9ecef;
+    
+    /* Typography */
+    --font-family-primary: 'Arial', sans-serif;
+    --font-family-secondary: 'Georgia', serif;
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-large: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 2rem;
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-loose: 1.75;
+    
+    /* Spacing system */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+    
+    /* Layout */
+    --container-width: 1200px;
+    --border-radius: 4px;
+    --border-radius-lg: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --box-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
+    
+    /* Animation */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* USING VARIABLES with var() function */
+
+/* Basic usage */
+.primary-button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.primary-button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: var(--box-shadow-lg);
+}
+
+/* Typography system using variables */
+.heading-1 {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-xxl);
+    color: var(--text-color);
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--spacing-lg);
+}
+
+.body-text {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    line-height: var(--line-height-normal);
+    margin-bottom: var(--spacing-md);
+}
+
+.small-text {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-small);
+    color: var(--text-light);
+    line-height: var(--line-height-normal);
+}
+
+/* Layout components */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.card {
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--box-shadow);
+    margin-bottom: var(--spacing-md);
+}
+
+/* FALLBACK VALUES */
+.fallback-example {
+    /* If --custom-color doesn't exist, use blue */
+    color: var(--custom-color, blue);
+    /* Multiple fallbacks */
+    font-size: var(--custom-size, var(--font-size-large, 1.25rem));
+}
+
+/* SCOPED VARIABLES - override in specific contexts */
+.dark-theme {
+    --primary-color: #4dabf7;
+    --text-color: #ffffff;
+    --background-color: #1a1a1a;
+    --surface-color: #2d2d2d;
+    --border-color: #404040;
+}
+
+.large-text-context {
+    --font-size-base: 1.125rem;
+    --font-size-large: 1.375rem;
+}
+
+/* CALCULATIONS with CSS calc() and variables */
+.dynamic-spacing {
+    /* Combine variables with calc() */
+    margin: calc(var(--spacing-md) * 2);
+    padding: calc(var(--spacing-sm) + 5px);
+    width: calc(100% - var(--spacing-lg) * 2);
+}
+
+.responsive-grid {
+    --columns: 3;
+    --gap: var(--spacing-md);
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: var(--gap);
+}
+
+/* COMPONENT VARIATIONS using variables */
+.button {
+    /* Base button styles using variables */
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.button--primary {
+    --button-bg: var(--primary-color);
+    --button-text: var(--background-color);
+    background-color: var(--button-bg);
+    color: var(--button-text);
+}
+
+.button--secondary {
+    --button-bg: var(--secondary-color);
+    --button-text: var(--background-color);
+    background-color: var(--button-bg);
+    color: var(--button-text);
+}
+
+.button--outline {
+    --button-bg: transparent;
+    --button-text: var(--primary-color);
+    --button-border: var(--primary-color);
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--button-border);
+}
+
+/* MEDIA QUERIES with variables */
+@media (max-width: 768px) {
+    :root {
+        /* Adjust spacing for mobile */
+        --spacing-md: 0.75rem;
+        --spacing-lg: 1rem;
+        --font-size-base: 0.9rem;
+        --container-width: 100%;
+    }
+    
+    .responsive-grid {
+        --columns: 1;
+    }
+}
+
+/* FRAMEWORK-LIKE UTILITY CLASSES */
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.text-accent { color: var(--accent-color); }
+
+.bg-primary { background-color: var(--primary-color); }
+.bg-surface { background-color: var(--surface-color); }
+
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+
+.m-sm { margin: var(--spacing-sm); }
+.m-md { margin: var(--spacing-md); }
+.m-lg { margin: var(--spacing-lg); }
+
+.rounded { border-radius: var(--border-radius); }
+.rounded-lg { border-radius: var(--border-radius-lg); }
+
+.shadow { box-shadow: var(--box-shadow); }
+.shadow-lg { box-shadow: var(--box-shadow-lg); }

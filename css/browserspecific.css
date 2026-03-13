@@ -1,0 +1,234 @@
+/*
+Not used very often, but there are often browser specific css classes that can be tweaked for given functions.
+Browser-specific prefixes and vendor-specific properties for cross-browser compatibility.
+*/
+
+/* WEBKIT BROWSERS (Chrome, Safari, Edge) */
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;             /* Chrome, Safari, Opera */
+}
+
+/* Custom scrollbar styling - WebKit only */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* WebKit appearance reset */
+.webkit-reset {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* WebKit text selection */
+.webkit-selection::-webkit-selection {
+    background: #007acc;
+    color: white;
+}
+
+/* WebKit transforms and animations */
+.webkit-transform {
+    -webkit-transform: translateX(50px);
+    -moz-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    transform: translateX(50px);
+}
+
+.webkit-animation {
+    -webkit-animation: fadeIn 1s ease-in-out;
+    -moz-animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* FIREFOX SPECIFIC */
+
+/* Firefox scrollbar styling */
+.firefox-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+/* Firefox focus outline */
+.firefox-focus {
+    -moz-outline-radius: 3px;
+}
+
+/* Firefox placeholder */
+.firefox-placeholder::-moz-placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+/* SAFARI SPECIFIC */
+
+/* Safari bounce scroll disable */
+.safari-no-bounce {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+}
+
+/* Safari input styling */
+.safari-input {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+/* Safari backface visibility */
+.safari-backface {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* CHROME SPECIFIC */
+
+/* Chrome autofill styling */
+.chrome-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    -webkit-text-fill-color: #333 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    -webkit-text-fill-color: #333;
+}
+
+/* Chrome speech input */
+.chrome-speech::-webkit-input-speech-button {
+    display: none;
+}
+
+/* CROSS-BROWSER COMPATIBILITY */
+
+/* Box sizing - older browser support */
+.universal-box-sizing {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Flexbox - older browser support */
+.flexbox-legacy {
+    display: -webkit-box;      /* OLD iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD Firefox 19- */
+    display: -ms-flexbox;      /* IE 10 */
+    display: -webkit-flex;     /* Chrome 20-28 */
+    display: flex;             /* Modern browsers */
+}
+
+/* CSS Grid - older browser support */
+.grid-legacy {
+    display: -ms-grid;         /* IE 10-11 */
+    display: grid;             /* Modern browsers */
+}
+
+/* Transition prefixes */
+.transition-legacy {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+/* Border radius prefixes (rarely needed now) */
+.border-radius-legacy {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* MOBILE BROWSER SPECIFIC */
+
+/* iOS Safari - disable zoom on input focus */
+.ios-no-zoom {
+    font-size: 16px; /* Prevents zoom on iOS */
+}
+
+/* Mobile WebKit - disable tap highlight */
+.mobile-no-highlight {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* Android - text size adjust */
+.android-text {
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* FEATURE DETECTION CLASSES */
+
+/* These would typically be added by JavaScript feature detection */
+.no-flexbox .fallback-layout {
+    float: left;
+    width: 50%;
+}
+
+.flexbox .modern-layout {
+    display: flex;
+    flex: 1;
+}
+
+/* PRINT SPECIFIC */
+@media print {
+    .webkit-print {
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+}
+
+/* DARK MODE SUPPORT */
+@media (prefers-color-scheme: dark) {
+    .webkit-dark-scrollbar::-webkit-scrollbar-track {
+        background: #2d2d2d;
+    }
+    
+    .webkit-dark-scrollbar::-webkit-scrollbar-thumb {
+        background: #555;
+    }
+}
+
+/* HIGH CONTRAST MODE */
+@media (prefers-contrast: high) {
+    .high-contrast-border {
+        border: 2px solid;
+    }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    .respect-motion-preference {
+        -webkit-animation: none;
+        animation: none;
+        -webkit-transition: none;
+        transition: none;
+    }
+}

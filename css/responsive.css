@@ -1,0 +1,192 @@
+/*
+Media queries are important for changing the css of your components based on the screen size of the user.
+
+There are mainly two ways of doing it desktop-first (max-width <=) or mobile-first (min-width >=)
+*/
+
+/* BASIC MEDIA QUERIES - MOBILE FIRST APPROACH */
+
+/* Small screens and up (576px+) */
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+    
+    .button {
+        width: auto;
+    }
+}
+
+/* Medium screens and up (768px+) - tablets */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+        padding: 2rem;
+    }
+    
+    .text {
+        font-size: 18px;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Large screens and up (992px+) - desktops */
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .text {
+        font-size: 20px;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Extra large screens and up (1200px+) - large desktops */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* DESKTOP FIRST APPROACH */
+/* Desktop first means designing for desktop first, then scaling down */
+
+/* Large screens and down (1199px and below) */
+@media (max-width: 1199px) {
+    .nav {
+        padding: 1rem;
+    }
+}
+
+/* Medium screens and down (991px and below) */
+@media (max-width: 991px) {
+    .nav {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+    
+    .nav-item {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        border-bottom: 1px solid #555;
+    }
+}
+
+/* Small screens and down (767px and below) */
+@media (max-width: 767px) {
+    .nav {
+        background: #222;
+    }
+    
+    .nav-item {
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+/* COMMON BREAKPOINTS */
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+    
+    .text {
+        font-size: 14px;
+    }
+    
+    .button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Landscape orientation */
+@media (orientation: landscape) {
+    .hero {
+        height: 60vh;
+    }
+}
+
+/* Portrait orientation */
+@media (orientation: portrait) {
+    .hero {
+        height: 40vh;
+    }
+}
+
+/* High DPI screens (retina displays) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo {
+        background-image: url('logo@2x.png');
+        background-size: contain;
+    }
+}
+
+/* PRINT STYLES */
+@media print {
+    .no-print {
+        display: none;
+    }
+    
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+    
+    .text {
+        color: black;
+        font-size: 12pt;
+    }
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #ffffff;
+    }
+    
+    .container {
+        background: #2d2d2d;
+    }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* COMBINING CONDITIONS */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Tablet specific styles */
+    .tablet-only {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) and (orientation: landscape) {
+    /* Tablet landscape styles */
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
