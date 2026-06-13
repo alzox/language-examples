@@ -27,3 +27,4 @@ def example(num: int) -> int:
     return num + 1
 
 print(example.__annotations__)
+print(c_i[:2])
